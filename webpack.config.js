@@ -1,10 +1,15 @@
 module.exports = {
-  mode: 'production', // production / development
-  
+  mode: 'development', // production / development
+
   entry: './src/js/script.js',
 
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/dist/js`,
     filename: 'main.js',
+  },
+
+  devServer: {
+    static: 'dist',
+    open: true,
   },
 };
