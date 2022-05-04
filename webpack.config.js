@@ -1,7 +1,10 @@
-module.exports = {
-  mode: 'production', // production / development
+const MODE = 'production'; // production / development
+const enabledSourceMap = MODE === "development";
 
-  entry: './src/ts/script.ts',
+module.exports = {
+  mode: MODE, // production / development
+
+  entry: './src/main.ts',
 
   module: {
     rules: [
@@ -23,6 +26,26 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: enabledSourceMap,
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: enabledSourceMap,
+            },
           },
         ],
       },

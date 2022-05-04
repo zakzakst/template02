@@ -1,4 +1,4 @@
-export function SampleInit() {
+export function sampleInit() {
   const sample = new Sample();
   sample.init();
 }

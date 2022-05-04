@@ -1,5 +1,5 @@
-import "@babel/polyfill";
+import { sampleInit } from './modules/sample';
 
-import { SampleInit } from './modules/sample';
-
-SampleInit();
+export function scriptInit() {
+  sampleInit();
+}
