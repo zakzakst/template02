@@ -5,6 +5,6 @@ export function SampleInit() {
 
 class Sample {
   init() {
-    console.log('sample init');
+    console.log('sample aaa');
   }
 }
