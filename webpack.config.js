@@ -1,5 +1,6 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MODE = 'production'; // production / development
-const enabledSourceMap = MODE === "development";
+const enabledSourceMap = MODE === 'development';
 
 module.exports = {
   mode: MODE, // production / development
@@ -32,13 +33,26 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          // 'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader',
             options: {
               url: false,
               sourceMap: enabledSourceMap,
               importLoaders: 2,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  ['autoprefixer', {grid: true}],
+                ],
+              },
             },
           },
           {
@@ -62,6 +76,12 @@ module.exports = {
       '.ts', '.js',
     ],
   },
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ],
 
   target: [
     'web',
