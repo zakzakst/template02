@@ -5,7 +5,10 @@ const enabledSourceMap = MODE === 'development';
 module.exports = {
   mode: MODE, // production / development
 
-  entry: './src/main.ts',
+  entry: {
+    script: './src/ts/script.ts',
+    script2: './src/ts/script2.ts',
+  },
 
   module: {
     rules: [
@@ -90,7 +93,7 @@ module.exports = {
 
   output: {
     path: `${__dirname}/dist/js`,
-    filename: 'main.js',
+    filename: '[name].js',
   },
 
   devServer: {
