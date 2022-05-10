@@ -1,0 +1,27 @@
+$c_primary: #f00;
+
+$break_points: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$width_containers: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1150px,
+  xxl: 1150px,
+);
+
+$spaces: (
+  0: 0,
+  1: 8,
+  2: 16,
+  3: 24,
+  4: 32,
+  5: 40,
+  auto: auto,
+);

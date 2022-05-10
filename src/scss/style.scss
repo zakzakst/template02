@@ -1,6 +1,3 @@
-$c_red: #a00;
-
-.sample {
-  display: grid;
-  color: $c_red;
-}
+@use "./foundation";
+@use "./plugins";
+@use "./components";
