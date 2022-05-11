@@ -4,4 +4,4 @@ console.log('script');
 sampleInit();
 
 // SCSS
-import '../scss/style.scss';
+// import '../scss/style.scss';

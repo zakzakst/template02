@@ -1,13 +1,17 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+
 const MODE = 'production'; // production / development
 const enabledSourceMap = MODE === 'development';
 
 module.exports = {
-  mode: MODE, // production / development
+  mode: MODE,
 
   entry: {
     script: './src/ts/script.ts',
     script2: './src/ts/script2.ts',
+    'style.css': './src/scss/style.scss',
+    'style2.css': './src/scss/style2.scss',
   },
 
   module: {
@@ -36,7 +40,6 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          // 'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
           },
@@ -81,8 +84,11 @@ module.exports = {
   },
 
   plugins: [
+    new FixStyleOnlyEntriesPlugin({
+      extensions: ['scss', 'css']
+    }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: 'css/[name]',
     }),
   ],
 
@@ -92,8 +98,8 @@ module.exports = {
   ],
 
   output: {
-    path: `${__dirname}/dist/js`,
-    filename: '[name].js',
+    path: `${__dirname}/dist`,
+    filename: 'js/[name].js',
   },
 
   devServer: {
