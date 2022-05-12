@@ -1,0 +1,50 @@
+{% extends 'layouts/default.njk' %}
+{% set PAGE_DATA = {
+  TITLE: 'ページタイトル',
+  DESCRIPTION: 'ページ概要',
+  PATH: '',
+  NAV: 'sample',
+  ROOT: './',
+  SCHEMA_ITEMS: [
+    {
+      ID: CONSTANTS.DOMAIN,
+      NAME: CONSTANTS.SITE_NAME
+    },
+    {
+      ID: CONSTANTS.DOMAIN + 'sample.html',
+      NAME: 'サンプル'
+    }
+  ],
+  BREADCRUMB: [
+    {
+      PATH: '',
+      NAME: 'トップ'
+    },
+    {
+      PATH: '/sample.html',
+      NAME: 'サンプル'
+    }
+  ]
+} %}
+
+{% block PAGE_HEAD %}
+  <!-- ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ -->
+  <link rel="stylesheet" href="/{{ CONSTANTS.SITE_ROOT }}css/sample.css">
+  <!-- ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ -->
+{% endblock %}
+
+{% block PAGE_CONTENT %}
+<div>サンプル</div>
+{% endblock %}
+
+{% block FIX_CONTENT %}
+<!-- ▼▼▼ 固定要素（モーダルなど） ▼▼▼ -->
+<div>固定要素</div>
+<!-- ▲▲▲ 固定要素（モーダルなど） ▲▲▲ -->
+{% endblock %}
+
+{% block PAGE_FOOT %}
+  <!-- ▼▼▼ 読み込みファイル（ページ専用） ▼▼▼ -->
+  <script src="/{{ CONSTANTS.SITE_ROOT }}js/sample.js"></script>
+  <!-- ▲▲▲ 読み込みファイル（ページ専用） ▲▲▲ -->
+{% endblock %}

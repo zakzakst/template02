@@ -1,0 +1,18 @@
+{% macro default(ITEMS) %}
+<!-- ▼▼▼ パンくず ▼▼▼ -->
+<ul>
+  {% for ITEM in ITEMS %}
+    {# クラス名を判定 #}
+    {% if ITEMS.length === loop.index %}
+      {% set CLASS = ' class="--active"' %}
+    {% else %}
+      {% set CLASS = '' %}
+    {% endif %}
+
+    <li>
+      <a href="{{ ITEM.LINK }}"{{ CLASS | safe }}>{{ ITEM.LABEL }}</a>
+    </li>
+  {% endfor %}
+</ul>
+<!-- ▲▲▲ パンくず ▲▲▲ -->
+{% endmacro %}

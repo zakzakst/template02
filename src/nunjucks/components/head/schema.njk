@@ -1,0 +1,21 @@
+<!-- ▼▼▼ 構造化データ ▼▼▼ -->
+{{ '<script type="application/ld+json">{ "@context": "http://schema.org", "@type": "BreadcrumbList", "itemListElement": [' | safe }}
+
+{% for ITEM in PAGE_DATA.SCHEMA_ITEMS %}
+  {% set JSON = {
+    "@type": "ListItem",
+    position: loop.index,
+    item: {
+      "@id": ITEM.ID,
+      name: ITEM.NAME
+    }
+  } %}
+  {% if PAGE_DATA.SCHEMA_ITEMS.length === loop.index %}
+    {{ JSON | dump | safe }}
+  {% else %}
+    {{ JSON | dump | safe }},
+  {% endif %}
+{% endfor %}
+
+{{ '] }</script>' | safe }}
+<!-- ▲▲▲ 構造化データ ▲▲▲ -->

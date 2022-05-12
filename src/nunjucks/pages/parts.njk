@@ -1,0 +1,51 @@
+{% extends 'layouts/default.njk' %}
+{% set PAGE_DATA = {
+  TITLE: 'ページタイトル',
+  DESCRIPTION: 'ページ概要',
+  PATH: '',
+  NAV: 'parts',
+  ROOT: './',
+  SCHEMA_ITEMS: [
+    {
+      ID: CONSTANTS.DOMAIN,
+      NAME: CONSTANTS.SITE_NAME
+    },
+    {
+      ID: CONSTANTS.DOMAIN + 'parts.html',
+      NAME: 'パーツ集'
+    }
+  ],
+  BREADCRUMB_ITEMS: [
+    {
+      LINK: '/',
+      LABEL: 'トップ'
+    },
+    {
+      LINK: '/parts.html',
+      LABEL: 'パーツ集'
+    }
+  ]
+} %}
+
+{# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
+{% from 'components/breadcrumb.njk' import default as BREADCRUMB %}
+{% from 'components/modal.njk' import default as MODAL %}
+{# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
+
+{% block PAGE_CONTENT %}
+  {# ▼▼▼ パンくず ▼▼▼ #}
+  {{ BREADCRUMB(PAGE_DATA.BREADCRUMB_ITEMS) }}
+  {# ▲▲▲ パンくず ▲▲▲ #}
+
+  {# ▼▼▼ モーダル ▼▼▼ #}
+  {% call MODAL('modal') %}
+    <p>モーダル</p>
+  {% endcall %}
+  {# ▲▲▲ モーダル ▲▲▲ #}
+{% endblock %}
+
+{# {% block FIX_CONTENT %}
+<!-- ▼▼▼ 固定要素（モーダルなど） ▼▼▼ -->
+<div>固定要素</div>
+<!-- ▲▲▲ 固定要素（モーダルなど） ▲▲▲ -->
+{% endblock %} #}

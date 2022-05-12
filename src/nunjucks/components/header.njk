@@ -1,0 +1,38 @@
+{% set NAV_ITEMS = [
+  {
+    id: 'home',
+    link: '/',
+    label: 'HOME'
+  },
+  {
+    id: 'parts',
+    link: '/parts.html',
+    label: 'PARTS'
+  },
+  {
+    id: 'page',
+    link: '/page.html',
+    label: 'PAGE'
+  }
+] %}
+
+<!-- ▼▼▼ ヘッダー ▼▼▼ -->
+<header>
+  <nav>
+    <ul>
+      {% for ITEM in NAV_ITEMS %}
+        {# クラス名を判定 #}
+        {% if ITEM.id === PAGE_DATA.NAV %}
+          {% set CLASS = ' class="--current"' %}
+        {% else %}
+          {% set CLASS = '' %}
+        {% endif %}
+
+        <li>
+          <a href="{{ ITEM.link }}"{{ CLASS | safe }}>{{ ITEM.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
+<!-- ▲▲▲ ヘッダー ▲▲▲ -->
