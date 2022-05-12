@@ -1,4 +1,4 @@
-{% extends 'layouts/default.njk' %}
+{% extends '../layouts/default.njk' %}
 {% set PAGE_DATA = {
   TITLE: 'ページタイトル',
   DESCRIPTION: 'ページ概要',
@@ -28,8 +28,8 @@
 } %}
 
 {# ▼▼▼ コンポーネント読み込み ▼▼▼ #}
-{% from 'components/breadcrumb.njk' import default as BREADCRUMB %}
-{% from 'components/modal.njk' import default as MODAL %}
+{% from '../components/breadcrumb.njk' import default as BREADCRUMB %}
+{% from '../components/modal.njk' import default as MODAL %}
 {# ▲▲▲ コンポーネント読み込み ▲▲▲ #}
 
 {% block PAGE_CONTENT %}

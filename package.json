@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "nunjucks": "node tasks/nunjucks-build.js && prettier --write dist/*.html"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,10 @@
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.0",
+    "nunjucks": "^3.2.3",
     "postcss": "^8.4.13",
     "postcss-loader": "^6.2.1",
+    "prettier": "^2.6.2",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "ts-loader": "^9.3.0",
