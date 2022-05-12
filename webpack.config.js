@@ -1,8 +1,21 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CONSTANTS = require('./src/nunjucks/constants.js');
 
 const MODE = 'production'; // production / development
 const enabledSourceMap = MODE === 'development';
+const fileNames = [
+  'parts',
+  'parts2',
+];
+const templates = fileNames.map((fileName) => {
+  return new HTMLWebpackPlugin({
+    template: `./src/nunjucks/pages/${fileName}.njk`,
+    templateParameters: CONSTANTS,
+    filename: `${fileName}.html`,
+  });
+});
 
 module.exports = {
   mode: MODE,
@@ -12,6 +25,7 @@ module.exports = {
     script2: './src/ts/script2.ts',
     'style.css': './src/scss/style.scss',
     'style2.css': './src/scss/style2.scss',
+    // 'parts.html': './src/nunjucks/pages/parts.njk',
   },
 
   module: {
@@ -69,6 +83,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {},
+          },
+        ],
+      },
     ],
   },
 
@@ -90,6 +113,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name]',
     }),
+    // new HTMLWebpackPlugin({
+    //   template: './src/nunjucks/pages/parts.njk',
+    //   templateParameters: CONSTANTS,
+    //   filename: 'parts.html',
+    // }),
+    ...templates,
   ],
 
   target: [

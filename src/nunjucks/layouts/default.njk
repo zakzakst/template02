@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   {# ▼▼▼ HEAD（共通） ▼▼▼ #}
-  {% include '../components/head/_index.njk' %}
+  {% include 'src/nunjucks/components/head/_index.njk' %}
   {# ▲▲▲ HEAD（共通） ▲▲▲ #}
 
   {# ▼▼▼ HEAD（ページ専用） ▼▼▼ #}
@@ -12,11 +12,11 @@
 </head>
 <body>
   {# ▼▼▼ ページローダー ▼▼▼ #}
-  {% include '../components/page-loader.njk' %}
+  {% include 'src/nunjucks/components/page-loader.njk' %}
   {# ▲▲▲ ページローダー ▲▲▲ #}
 
   {# ▼▼▼ ヘッダー ▼▼▼ #}
-  {% include '../components/header.njk' %}
+  {% include 'src/nunjucks/components/header.njk' %}
   {# ▲▲▲ ヘッダー ▲▲▲ #}
 
   <!-- ▼▼▼ ページ内容 ▼▼▼ -->
@@ -27,11 +27,11 @@
   <!-- ▲▲▲ ページ内容 ▲▲▲ -->
 
   {# ▼▼▼ フッター ▼▼▼ #}
-  {% include '../components/footer.njk' %}
+  {% include 'src/nunjucks/components/footer.njk' %}
   {# ▲▲▲ フッター ▲▲▲ #}
 
   {# ▼▼▼ トップへ戻る ▼▼▼ #}
-  {% include '../components/go-top.njk' %}
+  {% include 'src/nunjucks/components/go-top.njk' %}
   {# ▲▲▲ トップへ戻る ▲▲▲ #}
 
   {# ▼▼▼ 固定要素 ▼▼▼ #}
@@ -40,7 +40,7 @@
   {# ▲▲▲ 固定要素 ▲▲▲ #}
 
   {# ▼▼▼ FOOT（共通） ▼▼▼ #}
-  {% include '../components/foot/_index.njk' %}
+  {% include 'src/nunjucks/components/foot/_index.njk' %}
   {# ▲▲▲ FOOT（共通） ▲▲▲ #}
 
   {# ▼▼▼ FOOT（ページ専用） ▼▼▼ #}
