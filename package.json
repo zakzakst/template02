@@ -16,10 +16,10 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
+    "*.{js,ts}": [
       "eslint --fix"
     ],
-    "*.scss": [
+    "*.{css,scss}": [
       "stylelint --fix"
     ]
   },
