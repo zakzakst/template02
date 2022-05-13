@@ -1,7 +1,7 @@
 import { sampleInit } from './modules/sample';
 
 console.log('script');
-console.log('script');
+console.log("script");
 sampleInit();
 
 // SCSS
