@@ -6,13 +6,13 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "stylelint": "stylelint --fix src/scss/**/*.scss",
-    "eslint": "eslint --fix src/ts/**/*.ts",
+    "stylelintScss": "stylelint --fix src/scss/**/*.scss",
+    "eslintTs": "eslint --fix src/ts/**/*.ts",
     "imagemin": "node tasks/imagemin.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm stylelint && npm eslint"
+      "pre-commit": "npm run stylelintScss && npm run eslintTs"
     }
   },
   "repository": {
@@ -36,7 +36,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.1",
+    "husky": "^4.3.8",
     "imagemin": "^8.0.1",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-keep-folder": "^5.3.2",
