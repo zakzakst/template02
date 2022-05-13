@@ -6,13 +6,13 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "stylelintScss": "stylelint --fix src/scss/**/*.scss",
-    "eslintTs": "eslint --fix src/ts/**/*.ts",
+    "stylelint": "stylelint --fix src/scss/**/*.scss",
+    "eslint": "eslint --fix src/ts/**/*.ts",
     "imagemin": "node tasks/imagemin.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run stylelintScss && npm run eslintTs"
+      "pre-commit": "npm run stylelint && npm run eslint"
     }
   },
   "repository": {
