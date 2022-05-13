@@ -1,9 +1,8 @@
 @use "../global" as g;
 
 .test {
-  display: -ms-grid;
-  display: grid;
   color: g.$c_primary;
+  display: grid;
   transform: translate(50%, 50%);
 
   @include g.Mq(md) {
@@ -12,10 +11,9 @@
 }
 
 .test2 {
-  display: -ms-grid;
-  display: grid;
   color: g.$c_primary;
-  opacity: .5;
+  display: grid;
+  opacity: 0.5;
   transform: translate(50%, 50%);
 
   @include g.Mq(md) {
