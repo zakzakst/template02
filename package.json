@@ -12,8 +12,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run stylelint && npm run eslint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.scss": [
+      "stylelint --fix"
+    ]
   },
   "repository": {
     "type": "git",
@@ -43,6 +51,7 @@
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^9.0.0",
+    "lint-staged": "^11.2.6",
     "mini-css-extract-plugin": "^2.6.0",
     "nunjucks": "^3.2.3",
     "postcss": "^8.4.13",
